@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this workshop, you will use Cursor, an AI-assisted code editor, to design, build, test, version-control, and publish a small website.
+In this tutorial, you will use Cursor, an AI-assisted code editor, to design, build, test, version-control, and publish a small website.
 
 You may either:
 
