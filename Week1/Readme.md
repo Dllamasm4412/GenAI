@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this workshop, you will use Cursor, an AI-assisted code editor, to design, build, test, version-control, and publish a small website.
+In this tutorial, you will use Cursor, an AI-assisted code editor, to design, build, test, version-control, and publish a small website.
 
 You may either:
 
@@ -28,6 +28,7 @@ By the end of the tutorial, you will have:
 - Connected Cursor to GitHub
 - Accessed the course repository
 - Learned essential Cursor features
+- Created project rules from Cursor’s terminal
 - Used Cursor to create and revise a website
 - Tested the website locally
 - Committed your code with Git
@@ -37,7 +38,7 @@ By the end of the tutorial, you will have:
 
 # Learning goals
 
-This activity is not about asking an AI tool to make everything for you. It is about learning a responsible AI-assisted development workflow:
+This tutorial is not about asking an AI tool to make everything for you. It is about learning a responsible AI-assisted development workflow:
 
 1. Define a clear project goal.
 2. Ask the AI to inspect and plan before editing.
@@ -182,22 +183,23 @@ If you prefer a different location, that is fine. Keep it organized and make sur
 2. Click the green **Code** button.
 3. Make sure **HTTPS** is selected.
 4. Copy the repository URL.
-5. In Cursor, open the integrated terminal:
+5. Open Cursor.
+6. Open the integrated terminal:
    - **macOS:** `Control + backtick`
    - **Windows/Linux:** `Control + backtick`
-6. Confirm you are inside your course-projects folder:
+7. Confirm you are inside your course-projects folder:
 
 ```bash
 pwd
 ```
 
-7. Clone the repository:
+8. Clone the repository:
 
 ```bash
 git clone https://github.com/Dllamasm4412/GenAI.git
 ```
 
-8. Move into the repository:
+9. Move into the repository:
 
 ```bash
 cd GenAI
@@ -472,11 +474,11 @@ If `cursor .` does not work:
 
 ---
 
-# Part 6: Add project instructions in Cursor
+# Part 6: Create project instructions from Cursor’s terminal
 
 You will create a file named `PROJECT_RULES.md` in your own website repository.
 
-This file tells Cursor how to support you during the assignment.
+This file tells Cursor how to support you during the tutorial.
 
 After creating it, your repository will look similar to this:
 
@@ -499,9 +501,9 @@ sports-dashboard/
 
 ## 1. Confirm that you opened your own repository
 
-Look at the top of the Cursor window and the file explorer.
+Look at the top of the Cursor window and at the file explorer.
 
-You should see the name of **your own project repository**, such as:
+You should see your own project repository name, such as:
 
 ```text
 sports-dashboard
@@ -509,7 +511,21 @@ sports-dashboard
 
 You should not be editing the `GenAI` course repository for this step.
 
-In the terminal, run:
+Open Cursor’s integrated terminal and run:
+
+```bash
+pwd
+```
+
+The path should end with your project folder name.
+
+For example:
+
+```text
+/Users/your-name/Documents/ai-coding-projects/sports-dashboard
+```
+
+Check the repository connection:
 
 ```bash
 git remote -v
@@ -517,7 +533,7 @@ git remote -v
 
 You should see the URL of your personal GitHub repository.
 
-Then run:
+Then check the current project status:
 
 ```bash
 git status
@@ -525,22 +541,62 @@ git status
 
 You should see that you are on the `main` branch and that the working tree is clean.
 
-## 2. Create `PROJECT_RULES.md`
+## 2. Create the file with a terminal command
 
-In Cursor’s file explorer:
+In Cursor’s integrated terminal, make sure you are in your project repository folder.
 
-1. Find the top-level project folder. This is the folder named after your repository.
-2. Right-click the project folder.
-3. Select **New File**.
-4. Name the file exactly:
+Run:
+
+```bash
+touch PROJECT_RULES.md
+```
+
+The `touch` command creates a new empty file called `PROJECT_RULES.md`.
+
+To confirm that the file was created, run:
+
+```bash
+ls
+```
+
+You should now see:
+
+```text
+README.md
+PROJECT_RULES.md
+```
+
+If you do not see `PROJECT_RULES.md`, check that you are in the correct folder by running:
+
+```bash
+pwd
+```
+
+## 3. Open the file in Cursor
+
+In Cursor’s file explorer, locate:
 
 ```text
 PROJECT_RULES.md
 ```
 
-5. Press `Enter`.
-6. A new blank editor tab should open.
-7. Paste the following into the file:
+Click the file name once to open it in the editor.
+
+If you do not see it immediately:
+
+1. Click the refresh icon in the file explorer, if available.
+2. Or close and reopen the project folder.
+3. Or run this command in the terminal:
+
+```bash
+ls
+```
+
+The file should be in the top-level folder of your project, next to `README.md`.
+
+## 4. Add the project rules
+
+Copy and paste the following content into `PROJECT_RULES.md`:
 
 ```md
 # Project rules
@@ -568,22 +624,30 @@ After editing:
 3. Name one limitation or possible next improvement.
 ```
 
-8. Save the file:
-   - **macOS:** `Command + S`
-   - **Windows/Linux:** `Control + S`
+Save the file:
 
-## 3. Confirm that Cursor can see the file
+- **macOS:** `Command + S`
+- **Windows/Linux:** `Control + S`
 
-In the file explorer, confirm that you can see:
+## 5. Confirm that the file has content
 
-```text
-README.md
-PROJECT_RULES.md
+In Cursor’s terminal, run:
+
+```bash
+cat PROJECT_RULES.md
 ```
 
-Click `PROJECT_RULES.md` and make sure the rules appear in the editor.
+The terminal should display the rules you just added.
 
-## 4. Ask Cursor to read the rules
+You can also check the file’s status:
+
+```bash
+git status
+```
+
+You should see `PROJECT_RULES.md` listed as a new, untracked file.
+
+## 6. Ask Cursor to read the rules
 
 Open Cursor AI Chat:
 
@@ -598,7 +662,7 @@ Read README.md and PROJECT_RULES.md in this repository.
 Explain:
 1. Which files are currently in this project.
 2. What rules you must follow before editing files.
-3. What you would need from me before proposing a website plan.
+3. What information you would need from me before proposing a website plan.
 
 Do not create, edit, delete, or run anything yet.
 ```
@@ -611,23 +675,9 @@ Before moving on, make sure you understand:
 - Why `PROJECT_RULES.md` exists
 - Why Cursor should plan before writing website files
 
-## 5. Commit the project-rules file
+## 7. Commit the project-rules file
 
-Open the integrated terminal in Cursor.
-
-First, check the new file:
-
-```bash
-git status
-```
-
-You should see:
-
-```text
-PROJECT_RULES.md
-```
-
-Add the file:
+In Cursor’s terminal, add the new file to Git:
 
 ```bash
 git add PROJECT_RULES.md
@@ -999,7 +1049,8 @@ Before submitting, confirm:
 - [ ] I connected Cursor to GitHub or understand how GitHub works with my project.
 - [ ] I accessed and read the Week 1 course instructions.
 - [ ] I created my own GitHub repository for my website.
-- [ ] I created and committed `PROJECT_RULES.md`.
+- [ ] I created `PROJECT_RULES.md` from Cursor’s terminal.
+- [ ] I committed `PROJECT_RULES.md` to GitHub.
 - [ ] I used Cursor to plan before generating or editing code.
 - [ ] I reviewed Cursor’s proposed changes.
 - [ ] I tested my website locally.
