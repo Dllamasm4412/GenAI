@@ -22,7 +22,7 @@ Possible alternatives include:
 - A research-topic explainer
 - A website for a creative project
 
-By the end of the workshop, you will have:
+By the end of the tutorial, you will have:
 
 - Installed Cursor and created a personal account
 - Connected Cursor to GitHub
@@ -76,7 +76,7 @@ Each student must create and use a **personal Cursor account**.
 
 Cursor offers both free and paid plans.
 
-- The free plan is enough for this workshop.
+- The free plan is enough for this tutorial.
 - Paid plans may provide higher AI-usage limits.
 - A paid plan is optional and is not required for this class activity.
 - Do not feel pressured to provide payment information.
@@ -171,7 +171,7 @@ cd ai-coding-projects
 
 # Part 4: Essential Cursor features
 
-Cursor contains many features. This workshop focuses on the features most useful for beginning an AI-assisted web project.
+Cursor contains many features. This tutorial focuses on the features most useful for beginning an AI-assisted web project.
 
 ## File Explorer
 
