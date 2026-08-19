@@ -1,113 +1,201 @@
-# Build and Publish a Sports Dashboard with Cursor
+# Build and Publish a Website with Cursor
 
-## What you will make
+## Overview
 
-In this workshop, you will use Cursor, an AI-assisted code editor, to build and publish a small website.
+In this workshop, you will use Cursor, an AI-assisted code editor, to design, build, test, version-control, and publish a small website.
 
-By the end, you will have:
+You may either:
 
-- Installed and configured Cursor
+1. Follow the **sports-score dashboard** example in this guide, or
+2. Create a different website based on an interest, hobby, community, research topic, creative project, or portfolio idea.
+
+Possible alternatives include:
+
+- A personal portfolio website
+- A music or album-discovery interface using fictional data
+- A recipe organizer
+- A study-resource directory
+- A fictional campus-club site
+- A local event guide
+- A movie watchlist
+- A generative-art gallery
+- A research-topic explainer
+- A website for a creative project
+
+By the end of the workshop, you will have:
+
+- Installed Cursor and created a personal account
+- Connected Cursor to GitHub
 - Created a GitHub repository
-- Used Cursor to generate and revise a website
-- Tested the site locally
-- Committed your work with Git
-- Published the site using GitHub Pages
-
-Your website will be a **sports-score dashboard prototype**. It will display sample games and scores in a polished ESPN-inspired layout. It will not use ESPN content, branding, or a live sports API in this first version.
-
----
-
-## Learning goals
-
-This activity is not about having AI write everything for you. It is about practicing a responsible workflow:
-
-1. Describe a goal clearly.
-2. Ask the AI to inspect and plan before it edits files.
-3. Make small, understandable changes.
-4. Run and test the code.
-5. Save work with Git commits.
-6. Publish a working version online.
-
-You are responsible for the code in your repository, even when an AI tool helps create it.
+- Learned essential Cursor features
+- Used Cursor to create and revise a website
+- Tested the website locally
+- Committed your code with Git
+- Published your website with GitHub Pages
 
 ---
 
-# Part 1: Install Cursor
+# Learning goals
+
+This activity is not about asking an AI tool to make everything for you. It is about learning a responsible AI-assisted development workflow:
+
+1. Define a clear project goal.
+2. Ask the AI to inspect and plan before editing.
+3. Review proposed changes.
+4. Make small, understandable revisions.
+5. Test your website yourself.
+6. Save meaningful checkpoints with Git commits.
+7. Publish your work online.
+
+You are responsible for the code, content, design choices, and claims in your project—even if Cursor helps generate part of it.
+
+---
+
+# Part 1: Install Cursor and create an account
 
 ## 1. Download Cursor
 
 1. Go to [https://cursor.com](https://cursor.com).
-2. Download the version for your operating system:
+2. Select **Download**.
+3. Download the correct version for your computer:
    - macOS
    - Windows
    - Linux
-3. Install and open Cursor.
-4. Create an account or sign in.
+4. Install Cursor.
+5. Open Cursor after the installation finishes.
 
-Cursor is an AI-enabled code editor. It can read project files, suggest changes, generate code, and help explain code.
+## 2. Create a personal Cursor account
 
-## 2. Install Git
+Each student must create and use a **personal Cursor account**.
 
-Git is the tool that records changes to your project over time. GitHub is a website where you can store Git repositories online.
+1. Open Cursor.
+2. Select **Sign In** or **Create Account**.
+3. Sign up with an email address you can access throughout the semester.
+4. Verify your email address if prompted.
+5. Review the available account plans.
 
-Open a terminal and check whether Git is installed:
+Cursor offers both free and paid plans.
+
+- The free plan is enough for this workshop.
+- Paid plans may provide higher AI-usage limits.
+- A paid plan is optional and is not required for this class activity.
+- Do not feel pressured to provide payment information.
+- You are responsible for monitoring any subscription or usage charges connected to your account.
+
+Before choosing a plan, review current details at:
+
+[https://cursor.com/pricing](https://cursor.com/pricing)
+
+## 3. Connect Cursor to GitHub
+
+Connecting Cursor to GitHub can make it easier to work with repositories and use Cursor’s GitHub-related tools.
+
+1. Go to the Cursor dashboard or account settings.
+2. Open **Integrations**.
+3. Find **GitHub**.
+4. Select **Connect**.
+5. Sign in to your GitHub account when prompted.
+6. Review the permissions request carefully.
+7. Choose whether Cursor can access:
+   - All repositories, or
+   - Only selected repositories.
+
+For this class, selecting only the repository or repositories you use for coursework is a reasonable default.
+
+You can disconnect GitHub later through the Cursor integrations settings.
+
+> Important: Connecting Cursor to GitHub is not the same as publishing code. You will still use Git commits and `git push` to save your project to your repository.
+
+---
+
+# Part 2: Install and configure Git
+
+## 1. Check whether Git is installed
+
+Git records the history of changes in a project. GitHub stores Git repositories online.
+
+Open a terminal and run:
 
 ```bash
 git --version
 ```
 
-If the command prints a version number, Git is ready.
+If you see a version number, Git is installed.
 
-If it does not work:
+If Git is not installed:
 
-- **macOS:** Install the Xcode Command Line Tools when prompted, or install Git from [https://git-scm.com](https://git-scm.com).
+- **macOS:** Install Xcode Command Line Tools when prompted, or install Git from [https://git-scm.com](https://git-scm.com).
 - **Windows:** Install Git from [https://git-scm.com](https://git-scm.com).
-- **Linux:** Install Git through your distribution's package manager.
+- **Linux:** Install Git through your distribution’s package manager.
 
-Then configure your identity. Use the email address connected to your GitHub account:
+## 2. Configure your Git identity
+
+Run these commands in a terminal. Use your own name and the email address connected to GitHub.
 
 ```bash
 git config --global user.name "Your Name"
+```
+
+```bash
 git config --global user.email "your-email@example.com"
 ```
 
-## 3. Create a workspace folder
+---
 
-Create a folder where you will keep class projects.
+# Part 3: Create a project folder
 
-For example:
+## 1. Create a workspace
+
+Create a folder where you will keep course projects.
+
+In a terminal, run:
 
 ```bash
 mkdir ai-coding-projects
-cd ai-coding-projects
-mkdir sports-dashboard
-cd sports-dashboard
 ```
 
-Open this folder in Cursor:
+```bash
+cd ai-coding-projects
+```
+
+## 2. Open a project folder in Cursor
 
 1. Open Cursor.
 2. Select **File → Open Folder**.
-3. Choose the `sports-dashboard` folder.
+3. Open your `ai-coding-projects` folder.
+4. Later, you will open the specific website repository inside this folder.
+
+> Keep your work in an organized project folder. Avoid creating files in random desktop folders or in a location you cannot find later.
 
 ---
 
-# Part 2: Learn the Cursor workflow
+# Part 4: Essential Cursor features
 
-## Important Cursor features
+Cursor contains many features. This workshop focuses on the features most useful for beginning an AI-assisted web project.
 
-### File Explorer
+## File Explorer
 
-The file explorer, on the left side of Cursor, shows every file in your project. Use it to open and inspect your code.
+The file explorer is usually on the left side of Cursor.
 
-### Integrated Terminal
+Use it to:
 
-Open the terminal inside Cursor using:
+- View all files in your project
+- Create new files
+- Open and inspect code
+- Notice which files changed after an AI request
+
+Before accepting any generated code, check which files Cursor wants to create or edit.
+
+## Integrated Terminal
+
+The integrated terminal allows you to run commands without leaving Cursor.
+
+To open it, use:
 
 - **macOS:** `Control + backtick`
 - **Windows/Linux:** `Control + backtick`
 
-The terminal lets you run commands such as:
+You will use the terminal for commands such as:
 
 ```bash
 git status
@@ -121,69 +209,169 @@ git add .
 git commit -m "Describe your change"
 ```
 
-### AI Chat and Agent
-
-Cursor's AI chat can explain code, answer questions, and propose edits.
-
-Use this rule throughout the workshop:
-
-> Ask the AI to explain and plan before asking it to edit files.
-
-Good first prompt:
-
-```text
-I am new to this project. Inspect the current folder and explain what files are present and what each one does. Do not create or edit any files yet.
+```bash
+git push origin main
 ```
 
-Good implementation prompt:
+## AI Chat
+
+Use AI Chat when you want to ask questions, understand a file, ask for a plan, or discuss a problem before editing code.
+
+A common shortcut is:
+
+- **macOS:** `Command + L`
+- **Windows/Linux:** `Control + L`
+
+Example prompt:
 
 ```text
-Propose the smallest possible plan for adding this feature. Do not edit files until I approve the plan.
+Inspect this project and explain what each file does in plain language. Do not edit any files yet.
 ```
 
-### Review changes before accepting them
+You can give Cursor better context by mentioning specific files, selecting code, or explaining the behavior you observe.
 
-When Cursor proposes code changes:
+For example:
 
-1. Read the proposed changes.
-2. Check which files will change.
-3. Ask what each changed file is responsible for.
-4. Accept only changes you understand well enough to test.
+```text
+Read index.html, styles.css, and script.js. Explain how these files work together to create the website. Do not edit files.
+```
+
+## Agent or multi-file workflow
+
+Use Cursor’s agent or multi-file workflow when you want to create a small project from scratch or make a change that will affect several files.
+
+This is useful for requests such as:
+
+- Creating an initial HTML, CSS, and JavaScript website
+- Adding a feature that changes multiple files
+- Refactoring a small project
+
+Before asking Cursor to make a multi-file change, always ask for a plan first.
+
+Example:
+
+```text
+I want to add a light and dark mode toggle to this website. Inspect the current files and propose the smallest plan. Do not edit anything yet.
+```
+
+Read the plan. Ask questions. Approve it only when you understand what Cursor will change.
+
+## Inline editing
+
+Use inline editing when you want to make a small, targeted change to selected code.
+
+1. Highlight the code you want to change.
+2. Use:
+   - **macOS:** `Command + K`
+   - **Windows/Linux:** `Control + K`
+3. Describe the specific change.
+
+Example:
+
+```text
+Make this button more accessible by adding a clear aria-label.
+```
+
+Inline editing is best for focused modifications. Avoid using it for large project-wide changes.
+
+## Code completion
+
+Cursor may show a suggested continuation while you type.
+
+- Press `Tab` to accept a suggestion.
+- Do not accept a suggestion automatically.
+- Read it first.
+- Make sure you understand what it adds.
+
+A suggestion can be useful, but it can also introduce code you do not need.
+
+## Reviewing changes
+
+Whenever Cursor proposes changes:
+
+1. Look at every file it wants to edit.
+2. Review the difference between the old and new code.
+3. Ask Cursor to explain anything unclear.
+4. Accept only the files or changes you are prepared to test.
 5. Run the website after each meaningful change.
 
-Do not approve code just because it looks long or professional.
+Useful prompt:
+
+```text
+Before I accept these changes, explain what changed in each file and how I can test whether the change works.
+```
+
+## Best practice: plan before implementation
+
+AI tools work better when the task is small, specific, and clearly defined.
+
+Avoid vague prompts such as:
+
+```text
+Make me a cool website.
+```
+
+Use specific prompts such as:
+
+```text
+Create a static website for students to organize study resources. Use only HTML, CSS, and JavaScript. Include a title, category filters, six fictional sample resources, a responsive layout, and a dark/light mode toggle. First propose a plan and do not edit files yet.
+```
 
 ---
 
-# Part 3: Create a GitHub repository
+# Part 5: Create a GitHub repository
 
-## 1. Create a GitHub account
+## 1. Create or sign in to GitHub
 
-If you do not already have one, create a free account at [https://github.com](https://github.com).
+Go to [https://github.com](https://github.com).
 
-## 2. Create a new repository
+Create a free personal GitHub account if you do not already have one.
+
+Use an account you will be able to access throughout the semester.
+
+## 2. Create a repository
 
 1. Go to [https://github.com/new](https://github.com/new).
-2. Set the repository name to:
+2. Choose a repository name.
+
+For the sports example, use:
 
 ```text
 sports-dashboard
 ```
 
-3. Choose **Public**.
+For another project, choose a clear name such as:
+
+```text
+music-discovery-site
+```
+
+```text
+campus-events-guide
+```
+
+```text
+my-portfolio
+```
+
+3. Choose **Public**, unless your instructor tells you otherwise.
 4. Check **Add a README file**.
 5. Click **Create repository**.
 
-Do not add a `.gitignore` or license yet; Cursor can help with those after cloning the repository.
+## 3. Clone your repository
 
-## 3. Clone the repository
-
-On your GitHub repository page:
+On your new GitHub repository page:
 
 1. Click the green **Code** button.
 2. Copy the HTTPS repository URL.
-3. In the Cursor terminal, move to your class-projects folder.
-4. Clone your repository:
+3. Open Cursor’s terminal.
+4. Navigate to your class-projects folder:
+
+```bash
+cd path/to/ai-coding-projects
+```
+
+5. Clone the repository:
 
 ```bash
 git clone PASTE-YOUR-REPOSITORY-URL-HERE
@@ -195,81 +383,145 @@ For example:
 git clone https://github.com/your-username/sports-dashboard.git
 ```
 
-5. Open the cloned `sports-dashboard` folder in Cursor.
+6. Open the cloned project folder in Cursor.
 
-## 4. Confirm Git is working
+## 4. Confirm that Git works
 
-Run:
+In the Cursor terminal, run:
 
 ```bash
 git status
 ```
 
-You should see a message showing the current branch, usually called `main`.
+You should see a message identifying your current branch, usually named `main`.
 
 ---
 
-# Part 4: Give Cursor project instructions
+# Part 6: Add project rules for Cursor
 
-Create a file named:
+Create a file in the project root called:
 
 ```text
 PROJECT_RULES.md
 ```
 
-Paste the following:
+Copy this content into the file:
 
 ```md
 # Project rules
 
-This is a beginner web-development project for a course.
+This is a beginner web-development project.
 
 Before editing files:
-1. Explain the current project structure in plain language.
-2. Propose a small implementation plan.
-3. Wait for approval before making changes.
+1. Inspect the project and explain the current file structure in plain language.
+2. Propose the smallest implementation plan.
+3. Wait for my approval before making changes.
 
 When editing:
-- Prefer simple HTML, CSS, and JavaScript.
-- Do not add frameworks, packages, or APIs unless explicitly requested.
-- Do not use copyrighted team logos, ESPN branding, photos, or proprietary data.
-- Use fictional or clearly labeled sample sports data.
-- Keep the site accessible: readable text, clear labels, and keyboard-friendly controls.
+- Use simple HTML, CSS, and vanilla JavaScript unless I explicitly approve another tool.
+- Do not install packages or frameworks without asking first.
+- Do not delete files or use destructive terminal commands.
+- Keep changes focused on the requested feature.
+- Use semantic HTML and accessible labels.
 - Explain how to test each change locally.
 
+Content and design:
+- Use original, fictional, public-domain, or properly licensed content.
+- Do not copy another company’s logos, branding, text, images, layouts, or proprietary data.
+- Clearly label fictional examples or sample data.
+
 After editing:
-- Summarize what changed.
-- State how to test it.
-- Name one limitation or next improvement.
+1. Summarize what changed.
+2. Explain how to test it.
+3. Name one limitation or possible next improvement.
 ```
 
-Then ask Cursor:
+Ask Cursor:
 
 ```text
-Read PROJECT_RULES.md. Explain how these rules will guide your work in this repository. Do not edit any files.
+Read PROJECT_RULES.md. Explain how these rules will guide your work in this repository. Do not edit files.
 ```
 
 ---
 
-# Part 5: Generate the sports dashboard
+# Part 7: Choose your website concept
 
-## Step 1: Ask for a plan
+The sports-score dashboard is an example. You are welcome to create another small website.
 
-Before generating the website, ask Cursor:
+Before generating code, write a short project brief that answers:
+
+1. Who is the audience?
+2. What is the purpose of the website?
+3. What should a visitor be able to see or do?
+4. What are the 2–3 most important features?
+5. What data, text, images, or visual assets will you use?
+6. Which parts of the content are original, fictional, public-domain, or properly licensed?
+
+## Project constraints
+
+For this first project:
+
+- Build a static website using HTML, CSS, and JavaScript.
+- Do not use a framework unless your instructor approves it.
+- Do not copy the identity of an existing website or company.
+- Do not use copyrighted logos, branding, articles, images, or proprietary data without permission.
+- Use original content, fictional sample content, public-domain materials, or properly licensed assets.
+- Your website must work on desktop and mobile screen sizes.
+- Your website must include at least one interactive JavaScript feature.
+- Your website must include clear, accessible labels and readable text.
+
+---
+
+# Part 8: Ask Cursor to plan your site
+
+Before generating your website, use a planning prompt.
 
 ```text
-I want to build a small sports-score dashboard prototype. First, inspect the repository and propose a minimal plan. The site should use only static HTML, CSS, and JavaScript. Do not edit files yet.
+I want to build a small static website about [YOUR TOPIC] for [YOUR AUDIENCE].
 
-The prototype should show fictional sample scores, not real-time scores. I want a clean, modern sports-news dashboard style without copying ESPN branding, layout, text, logos, or assets.
+The website’s purpose is: [WRITE ONE OR TWO SENTENCES].
+
+It should include:
+1. [FEATURE ONE]
+2. [FEATURE TWO]
+3. [FEATURE THREE]
+
+I want to use only HTML, CSS, and vanilla JavaScript.
+
+Inspect the repository and propose the smallest implementation plan. Tell me which files you would create or modify, what each file will do, and how I can test the project. Do not edit files yet.
 ```
 
-Read Cursor's plan. Ask questions if any part is unclear.
+Read Cursor’s response before continuing.
 
-Only continue when you can explain, in your own words, what files the plan will create and why.
+You should be able to explain:
 
-## Step 2: Use this implementation prompt
+- Which files will be created
+- What HTML is responsible for
+- What CSS is responsible for
+- What JavaScript is responsible for
+- How you will test the website
 
-Copy and paste this prompt into Cursor after you approve its plan:
+---
+
+# Part 9: Example project — sports-score dashboard
+
+This example creates a fictional sports-score dashboard. It is inspired by the general idea of a sports-score website, but it must not copy ESPN branding, layout, logos, text, data, or assets.
+
+## Step 1: Ask Cursor for a plan
+
+```text
+I want to build a small sports-score dashboard prototype. Inspect the repository and propose a minimal plan. Do not edit files yet.
+
+The site should use only static HTML, CSS, and JavaScript.
+
+The prototype should show fictional sample scores, not live scores. I want a clean, modern sports-news dashboard style without copying ESPN branding, layouts, text, logos, images, or assets.
+```
+
+Read the plan before giving permission to continue.
+
+## Step 2: Generate the initial website
+
+After reviewing and approving the plan, copy this prompt into Cursor:
 
 ```text
 Create a responsive static sports-score dashboard website in this repository.
@@ -282,21 +534,29 @@ Technical constraints:
 - Create these files: index.html, styles.css, and script.js.
 - Use semantic HTML and clear comments for major sections.
 - The website must run by opening index.html locally in a browser.
-- Do not use external images, team logos, ESPN branding, copyrighted text, or scraped content.
-- Use entirely fictional team names and clearly label every score as “Sample Data.”
+- Do not use external images, team logos, ESPN branding, copyrighted text, scraped content, or real-time sports data.
+- Use entirely fictional team names.
+- Clearly label all games as “Sample Data.”
 
 Design requirements:
 - Create a polished, dark-mode sports dashboard.
-- Include a header with the title “Scoreboard” and a short subtitle: “Fictional sample games for a web-design exercise.”
+- Include a header with the title “Scoreboard.”
+- Include this subtitle: “Fictional sample games for a web-design exercise.”
 - Include sport filter buttons: All, Basketball, Soccer, Baseball, and Hockey.
 - Display at least 8 sample game cards across multiple sports.
-- Each card must show: sport, game status, two fictional team names, each score, and game time or final status.
-- Include a small “featured game” section at the top.
-- Include a small disclaimer stating that the site does not display live scores.
+- Each game card must show:
+  - Sport
+  - Game status
+  - Two fictional team names
+  - Each team’s score
+  - Game time or final status
+- Include a featured-game section at the top.
+- Include a visible disclaimer that the website does not display live scores.
 - Make the layout responsive for desktop and mobile screens.
 - Add an accessible, labeled button that toggles between dark and light mode.
-- Make filter buttons work with JavaScript.
-- Use an array of game objects in script.js to generate the game cards rather than hard-coding every card into HTML.
+- Make the sport-filter buttons work with JavaScript.
+- Store game information in an array of game objects in script.js.
+- Use JavaScript to generate game cards instead of hard-coding every game card in index.html.
 
 After creating the website:
 1. Explain the role of index.html, styles.css, and script.js.
@@ -304,41 +564,79 @@ After creating the website:
 3. List two possible next improvements, but do not implement them yet.
 ```
 
-## Step 3: Test the site locally
+## Step 3: Test your website
 
-After Cursor finishes:
+Open `index.html` in a browser.
 
-1. Find `index.html` in the file explorer.
-2. Open it in a browser.
-3. Check the following:
-   - Does the page load?
-   - Do all sample games appear?
-   - Do the sport filters work?
-   - Does the light/dark mode button work?
-   - Does the layout still work when the browser window is narrow?
-   - Does the disclaimer appear?
+Test the following:
 
-If something does not work, do not simply say “fix it.”
+- Does the page load?
+- Do the fictional game cards appear?
+- Do the sport filters work?
+- Does the dark/light mode button work?
+- Does the layout work on a narrow browser window?
+- Does the sample-data disclaimer appear?
+- Are buttons and labels easy to understand?
 
-Instead, describe the observed problem:
+If something does not work, describe the specific behavior you observed.
+
+Good debugging prompt:
 
 ```text
-When I click the Soccer filter, the visible game cards do not change. Inspect the relevant code, explain the likely cause, and propose the smallest fix. Do not edit files yet.
+When I click the Soccer filter, the game cards do not update. Inspect the relevant code, explain the likely cause, and propose the smallest possible fix. Do not edit files yet.
 ```
 
 ---
 
-# Part 6: Commit your work to GitHub
+# Part 10: Prompt template for your own website
 
-## 1. Check what changed
+Use this template if you choose a topic other than the sports dashboard:
 
-In the Cursor terminal, run:
+```text
+I want to create a responsive static website about [YOUR TOPIC] for [YOUR AUDIENCE].
+
+The purpose of the site is:
+
+[DESCRIBE THE PURPOSE IN ONE OR TWO SENTENCES.]
+
+The site must include:
+1. [FEATURE ONE]
+2. [FEATURE TWO]
+3. [FEATURE THREE]
+
+Technical constraints:
+- Use only HTML, CSS, and vanilla JavaScript.
+- Do not install packages or use a framework unless I explicitly approve it.
+- Create or modify index.html, styles.css, and script.js as needed.
+- Use semantic HTML and accessible labels.
+- The site must run locally by opening index.html in a browser.
+- Use only original, fictional, public-domain, or properly licensed content.
+- Do not copy another organization’s branding, logos, text, images, or proprietary data.
+
+Design direction:
+- The visual style should be: [DESCRIBE THE COLOR, MOOD, OR STYLE].
+- The site should work on desktop and mobile screens.
+- Include a visible title and short description.
+- Include at least one interactive JavaScript feature.
+
+First, inspect the project and propose a minimal plan. Do not edit files until I approve the plan.
+```
+
+---
+
+# Part 11: Commit your work with Git
+
+## 1. Check your changed files
+
+In Cursor’s terminal, run:
 
 ```bash
 git status
 ```
 
-You should see new files such as:
+You should see the website files you created or changed.
+
+For example:
 
 ```text
 index.html
@@ -347,105 +645,141 @@ script.js
 PROJECT_RULES.md
 ```
 
-## 2. Add your files
+## 2. Add files to Git
 
 ```bash
 git add .
 ```
 
-## 3. Make your first commit
+## 3. Create your first commit
 
-A commit is a labeled snapshot of your work.
+A commit is a saved checkpoint in your project history.
 
 ```bash
-git commit -m "Build initial sports dashboard prototype"
+git commit -m "Build initial website prototype"
 ```
 
-## 4. Push to GitHub
+Write commit messages that describe what changed.
+
+Examples:
+
+```bash
+git commit -m "Add responsive navigation"
+```
+
+```bash
+git commit -m "Fix category filter behavior"
+```
+
+```bash
+git commit -m "Improve mobile layout"
+```
+
+## 4. Push your work to GitHub
 
 ```bash
 git push origin main
 ```
 
-Refresh your GitHub repository page. You should see your website files online.
+Refresh your repository page on GitHub. Your files should now appear online.
 
 ---
 
-# Part 7: Deploy with GitHub Pages
+# Part 12: Deploy your website with GitHub Pages
 
-GitHub Pages can publish a static website directly from files in your GitHub repository.
+GitHub Pages can publish static HTML, CSS, and JavaScript files from your GitHub repository.
 
 ## 1. Enable GitHub Pages
 
-1. Open your `sports-dashboard` repository on GitHub.
+1. Open your GitHub repository.
 2. Click **Settings**.
-3. In the left sidebar, click **Pages**.
-4. Under **Build and deployment**, select:
+3. In the left sidebar, select **Pages**.
+4. Under **Build and deployment**, choose:
    - Source: **Deploy from a branch**
    - Branch: **main**
    - Folder: **/(root)**
 5. Click **Save**.
 
-GitHub will build and publish the site. This can take a few minutes.
+GitHub will publish your website. This can take a few minutes.
 
-## 2. Find your live website
+## 2. Find the live website URL
 
-Return to **Settings → Pages**. GitHub will display your published website URL.
+Return to **Settings → Pages**.
 
-It will usually have a form similar to:
+GitHub will display a URL for your published website. It usually looks like:
 
 ```text
-https://your-github-username.github.io/sports-dashboard/
+https://your-github-username.github.io/your-repository-name/
 ```
 
-Open the URL and test the live version.
+Open that URL and test the live website.
 
-## 3. Make and publish one improvement
+## 3. Publish one improvement
 
-Choose one small improvement, such as:
+Choose one small improvement after your first deployment.
 
-- Add another fictional sport.
-- Improve mobile spacing.
-- Add a “Last updated” sample label.
-- Add a simple search field for team names.
-- Improve color contrast.
+Ideas:
 
-Ask Cursor to plan the change first. Then test it locally.
+- Improve spacing on mobile
+- Add another category or section
+- Add a search field
+- Improve color contrast
+- Add a new interactive feature
+- Improve instructions for visitors
+- Add original visual assets
+- Add an accessibility improvement
 
-When it works:
+Ask Cursor to plan the improvement before making changes.
+
+When the improvement works locally, publish it:
 
 ```bash
 git add .
-git commit -m "Improve dashboard usability"
+```
+
+```bash
+git commit -m "Improve website usability"
+```
+
+```bash
 git push origin main
 ```
 
-Wait briefly, refresh your GitHub Pages URL, and confirm that your improvement is live.
+Wait a few minutes, refresh the GitHub Pages URL, and confirm that the update appears online.
 
 ---
 
-# Submission checklist
+# Part 13: Submit your work
 
 Submit:
 
 - Your GitHub repository URL
 - Your deployed GitHub Pages URL
-- A screenshot of your working site
+- One screenshot of the working website
 - A short reflection answering:
-  1. What did Cursor help you create?
-  2. What did you personally test or revise?
-  3. Describe one prompt you improved after seeing Cursor’s result.
-  4. What is one limitation of your dashboard prototype?
-  5. What would be required to turn sample scores into reliable live scores?
+
+1. What did Cursor help you create?
+2. What did you personally test or revise?
+3. What prompt did you improve after seeing Cursor’s first result?
+4. What is one limitation of your current website?
+5. What would you build next if you had more time?
 
 ---
 
-# Optional challenge
+# Final checklist
 
-If you finish early, research a sports-data API. Do not add one to your project until you can answer:
+Before submitting, confirm:
 
-1. Does the API allow public use in a student project?
-2. Does it require an API key?
-3. What are its rate limits?
-4. Which sports and leagues does it cover?
-5. How will you protect a private API key from being committed to GitHub?
+- [ ] I created my own Cursor account.
+- [ ] I selected a free or paid plan intentionally.
+- [ ] I connected Cursor to GitHub or understand how GitHub works with my project.
+- [ ] I created a GitHub repository.
+- [ ] I used Cursor to plan before generating or editing code.
+- [ ] I reviewed Cursor’s proposed changes.
+- [ ] I tested my website locally.
+- [ ] I made at least one Git commit.
+- [ ] I pushed my work to GitHub.
+- [ ] I deployed the website with GitHub Pages.
+- [ ] I tested the live URL.
+- [ ] My website uses original, fictional, public-domain, or properly licensed content.
+- [ ] My reflection explains both Cursor’s contribution and my own verification work.
