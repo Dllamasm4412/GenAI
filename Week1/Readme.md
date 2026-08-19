@@ -6,13 +6,13 @@ In this tutorial, you will use Cursor, an AI-assisted code editor, to design, bu
 
 You may either:
 
-1. Follow the **sports-score dashboard** example in this guide, or
+1. Follow the **Premier League Match Center** example in this guide, or
 2. Create a different website based on an interest, hobby, community, research topic, creative project, or portfolio idea.
 
 Possible alternatives include:
 
 - A personal portfolio website
-- A music or album-discovery interface using fictional data
+- A music or album-discovery interface
 - A recipe organizer
 - A study-resource directory
 - A fictional campus-club site
@@ -30,7 +30,7 @@ By the end of the tutorial, you will have:
 - Learned essential Cursor features
 - Created project rules from Cursor’s terminal
 - Used Cursor to create and revise a website
-- Tested the website locally
+- Tested the website on a local server
 - Committed your code with Git
 - Published your website with GitHub Pages
 
@@ -407,10 +407,10 @@ Do not directly edit the main course repository unless your instructor specifica
 1. Go to [https://github.com/new](https://github.com/new).
 2. Choose a repository name.
 
-For the sports example:
+For the Premier League example:
 
 ```text
-sports-dashboard
+premier-league-match-center
 ```
 
 For another project, choose a clear name such as:
@@ -453,13 +453,13 @@ git clone PASTE-YOUR-REPOSITORY-URL-HERE
 For example:
 
 ```bash
-git clone https://github.com/your-username/sports-dashboard.git
+git clone https://github.com/your-username/premier-league-match-center.git
 ```
 
 6. Open your newly cloned website folder in Cursor:
 
 ```bash
-cd sports-dashboard
+cd premier-league-match-center
 ```
 
 ```bash
@@ -483,7 +483,7 @@ This file tells Cursor how to support you during the tutorial.
 After creating it, your repository will look similar to this:
 
 ```text
-sports-dashboard/
+premier-league-match-center/
 ├── README.md
 └── PROJECT_RULES.md
 ```
@@ -491,7 +491,7 @@ sports-dashboard/
 Later, you will add your website files:
 
 ```text
-sports-dashboard/
+premier-league-match-center/
 ├── README.md
 ├── PROJECT_RULES.md
 ├── index.html
@@ -506,7 +506,7 @@ Look at the top of the Cursor window and at the file explorer.
 You should see your own project repository name, such as:
 
 ```text
-sports-dashboard
+premier-league-match-center
 ```
 
 You should not be editing the `GenAI` course repository for this step.
@@ -522,7 +522,7 @@ The path should end with your project folder name.
 For example:
 
 ```text
-/Users/your-name/Documents/ai-coding-projects/sports-dashboard
+/Users/your-name/Documents/ai-coding-projects/premier-league-match-center
 ```
 
 Check the repository connection:
@@ -566,7 +566,7 @@ README.md
 PROJECT_RULES.md
 ```
 
-If you do not see `PROJECT_RULES.md`, check that you are in the correct folder by running:
+If you do not see `PROJECT_RULES.md`, check that you are in the correct folder:
 
 ```bash
 pwd
@@ -586,7 +586,7 @@ If you do not see it immediately:
 
 1. Click the refresh icon in the file explorer, if available.
 2. Or close and reopen the project folder.
-3. Or run this command in the terminal:
+3. Or run:
 
 ```bash
 ls
@@ -615,7 +615,6 @@ When editing:
 - Keep each change focused on one requested feature.
 - Use semantic HTML and accessible labels.
 - Use original, fictional, public-domain, or properly licensed content.
-- Do not copy another organization’s logos, branding, text, images, layouts, or proprietary data.
 - Explain how to test each change locally.
 
 After editing:
@@ -639,7 +638,7 @@ cat PROJECT_RULES.md
 
 The terminal should display the rules you just added.
 
-You can also check the file’s status:
+Check the file’s status:
 
 ```bash
 git status
@@ -689,23 +688,41 @@ Create a commit:
 git commit -m "Add Cursor project rules"
 ```
 
-Push the commit to GitHub:
+Before pushing, synchronize your local branch with GitHub:
+
+```bash
+git pull --rebase origin main
+```
+
+Then push:
 
 ```bash
 git push origin main
 ```
 
-Refresh your GitHub repository page in a browser.
+If Git reports a conflict, do not use `git push --force`. Read the conflict message, resolve the marked file in Cursor, then continue the rebase:
 
-Confirm that `PROJECT_RULES.md` appears in the repository.
+```bash
+git add NAME-OF-CONFLICTED-FILE
+```
 
-> If `git push` asks you to sign in, follow the GitHub sign-in steps shown in the terminal or browser. Do not share your GitHub password or personal access token with anyone.
+```bash
+git rebase --continue
+```
+
+When the rebase is complete:
+
+```bash
+git push origin main
+```
+
+Refresh your GitHub repository page and confirm that `PROJECT_RULES.md` appears in the repository.
 
 ---
 
 # Part 7: Choose your website concept
 
-The sports-score dashboard is an example. You may create another small website.
+The Premier League Match Center is an example. You may create another small website.
 
 Before generating code, write a short project brief that answers:
 
@@ -722,12 +739,11 @@ For this first project:
 
 - Build a static website using HTML, CSS, and JavaScript.
 - Do not use a framework unless your instructor approves it.
-- Do not copy the identity of an existing website or company.
-- Do not use copyrighted logos, branding, articles, images, or proprietary data without permission.
-- Use original content, fictional sample content, public-domain materials, or properly licensed assets.
 - Your website must work on desktop and mobile screen sizes.
 - Your website must include at least one interactive JavaScript feature.
 - Your website must include clear, accessible labels and readable text.
+- If you use outside content, data, or imagery, add a visible source or attribution note.
+- Do not present your website as officially affiliated with an organization unless it actually is.
 
 ---
 
@@ -771,130 +787,283 @@ You should be able to explain:
 
 ---
 
-# Part 9: Example project — sports-score dashboard
+# Part 9: Example project — Premier League Match Center
 
-This example creates a fictional sports-score dashboard. It is inspired by the general idea of a sports-score website, but it must not copy ESPN branding, layout, logos, text, data, or assets.
+This example creates a Premier League match center using live and recent match data from TheSportsDB.
+
+TheSportsDB documents the English Premier League with league ID `4328` and provides a free v1 test key, `123`, for experimentation. The test key is shared and rate-limited, so it is suitable for a learning prototype but not a production service. [TheSportsDB API documentation](https://www.thesportsdb.com/docs_api_guide)
 
 ## Step 1: Ask Cursor for a plan
 
 ```text
 Read PROJECT_RULES.md before responding.
 
-I want to build a small sports-score dashboard prototype. Inspect the repository and propose a minimal plan. Do not edit files yet.
+I want to build a Premier League match center using real sports data.
 
-The site should use only static HTML, CSS, and JavaScript.
+Inspect README.md, PROJECT_RULES.md, index.html, styles.css, and script.js if they exist. Propose the smallest safe implementation plan. Do not edit files yet.
 
-The prototype should show fictional sample scores, not live scores. I want a clean, modern sports-news dashboard style without copying ESPN branding, layouts, text, logos, images, or assets.
+Requirements:
+- Focus only on the English Premier League.
+- Use TheSportsDB Premier League identifier: 4328.
+- Use only HTML, CSS, and vanilla JavaScript.
+- Use the public v1 test key 123. Do not add a private key or credentials.
+- Show live matches when they are available.
+- Keep today’s remaining fixtures separate from live matches.
+- Show recent completed results.
+- Show loading, empty, and error states.
+- Show the time of the last successful refresh.
+- Add an accessible “Refresh scores” button.
+- Do not refresh automatically more often than once every 60 seconds.
+- Keep a responsive layout and a dark/light mode toggle.
+- Add a visible source note explaining that match data comes from TheSportsDB and that this is an independent educational demo.
+- Explain how to test the page when no Premier League match is currently in progress.
 ```
 
-Read the plan before giving permission to continue.
+Read Cursor’s plan before giving permission to continue.
 
-## Step 2: Generate the initial website
+## Step 2: Correct the live-match logic
 
-After reviewing and approving the plan, copy this prompt into Cursor:
+For Premier League soccer, define a match as live only when `strStatus` is one of:
+
+```text
+1H
+HT
+2H
+ET
+P
+```
+
+Do not classify postponed, canceled, abandoned, interrupted, scheduled, or finished matches as live.
+
+Use this clarification prompt before implementation:
+
+```text
+Your plan is approved with these rules:
+
+1. Classify an event as live only when strStatus is one of:
+   1H, HT, 2H, ET, or P.
+
+2. Today’s matches must include only events that are not live and not completed.
+
+3. Recent results must contain only completed events. Treat FT, AET, and PEN as completed statuses.
+
+4. If no match is live, show:
+   “No Premier League match is being played right now.”
+
+5. If the API request fails, show an error message that is clearly different from the no-live-matches message.
+
+Do not edit files until you acknowledge these requirements.
+```
+
+## Step 3: Generate the match center
+
+After Cursor acknowledges the requirements, use this prompt:
 
 ```text
 Read PROJECT_RULES.md before responding.
 
-Create a responsive static sports-score dashboard website in this repository.
+Implement the approved Premier League Match Center plan using only HTML, CSS, and vanilla JavaScript.
 
-First, briefly restate the files you will create or modify. Then make the changes.
+Use these TheSportsDB v1 endpoints:
 
-Technical constraints:
-- Use only HTML, CSS, and vanilla JavaScript.
-- Do not install packages or use a framework.
-- Create these files: index.html, styles.css, and script.js.
-- Use semantic HTML and clear comments for major sections.
-- The website must run by opening index.html locally in a browser.
-- Do not use external images, team logos, ESPN branding, copyrighted text, scraped content, or real-time sports data.
-- Use entirely fictional team names.
-- Clearly label all games as “Sample Data.”
+Today:
+https://www.thesportsdb.com/api/v1/json/123/eventsday.php?d=YYYY-MM-DD&l=4328
 
-Design requirements:
-- Create a polished, dark-mode sports dashboard.
-- Include a header with the title “Scoreboard.”
-- Include this subtitle: “Fictional sample games for a web-design exercise.”
-- Include sport filter buttons: All, Basketball, Soccer, Baseball, and Hockey.
-- Display at least 8 sample game cards across multiple sports.
-- Each game card must show:
-  - Sport
-  - Game status
-  - Two fictional team names
-  - Each team’s score
-  - Game time or final status
-- Include a featured-game section at the top.
-- Include a visible disclaimer that the website does not display live scores.
-- Make the layout responsive for desktop and mobile screens.
-- Add an accessible, labeled button that toggles between dark and light mode.
-- Make the sport-filter buttons work with JavaScript.
-- Store game information in an array of game objects in script.js.
-- Use JavaScript to generate game cards instead of hard-coding every game card in index.html.
+Upcoming:
+https://www.thesportsdb.com/api/v1/json/123/eventsnextleague.php?id=4328
 
-After creating the website:
-1. Explain the role of index.html, styles.css, and script.js.
-2. Tell me exactly how to test it locally.
-3. List two possible next improvements, but do not implement them yet.
+Recent:
+https://www.thesportsdb.com/api/v1/json/123/eventspastleague.php?id=4328
+
+Replace YYYY-MM-DD with the visitor’s local date in JavaScript.
+
+Requirements:
+1. Fetch the three endpoints in parallel when the page loads.
+2. Create a page title: “Premier League Match Center.”
+3. Add three sections:
+   - Live
+   - Today’s Matches
+   - Recent Results
+4. Render API events into accessible match cards.
+5. Each match card must show:
+   - Home team name
+   - Away team name
+   - Home score
+   - Away score
+   - Match status or kickoff time
+6. Show “Loading Premier League scores...” while requests are in progress.
+7. Add an aria-live status area for loading, empty, and error messages.
+8. Show “Last refresh” using the visitor’s local time after a successful request.
+9. Add an accessible “Refresh scores” button.
+10. Disable the Refresh button for 60 seconds after a successful request.
+11. Do not automatically refresh more frequently than every 60 seconds.
+12. Keep the existing dark/light mode toggle.
+13. Preserve the most recent successful match data if a later refresh fails.
+14. If no live match exists, show:
+    “No Premier League match is being played right now.”
+15. If no match is scheduled for today, show:
+    “No Premier League matches are scheduled for today.”
+16. If no recent completed match is available, show:
+    “Recent Premier League results are not available.”
+17. Add a visible footer note:
+    “Match data provided by TheSportsDB. This is an independent educational demo and is not affiliated with the Premier League or its clubs.”
+18. Do not include private API keys or credentials in the repository.
+
+After editing:
+- Explain which files changed.
+- Explain how API data becomes match cards.
+- Give exact steps for testing loading, success, empty, and error states.
+- Identify one limitation of using a shared public API key from a static website.
 ```
 
-## Step 3: Test your website
+## Optional: team badges
 
-Open `index.html` in a browser.
+For a local educational example, you may show team badge URLs returned by the data provider.
 
-Test the following:
-
-- Does the page load?
-- Do the fictional game cards appear?
-- Do the sport filters work?
-- Does the dark/light mode button work?
-- Does the layout work on a narrow browser window?
-- Does the sample-data disclaimer appear?
-- Are buttons and labels easy to understand?
-
-If something does not work, describe the specific behavior you observed.
-
-Good debugging prompt:
+If you do, add these requirements to your prompt:
 
 ```text
-When I click the Soccer filter, the game cards do not update. Inspect the relevant code, explain the likely cause, and propose the smallest possible fix. Do not edit files yet.
+Team-badge requirements:
+- Use badge image URLs returned by TheSportsDB when available.
+- Do not download, store, or commit badge image files into this repository.
+- Use remote image URLs only.
+- If a badge image is missing or fails to load, show a text fallback with the team’s initials.
+- Add descriptive alt text, for example: “Arsenal badge.”
+- Keep the visible footer attribution to TheSportsDB.
 ```
+
+> Note: Some v1 fixture responses may not contain badge URLs. If that happens, ask Cursor to add an in-memory cache that fetches each team’s badge only once by team name or ID.
 
 ---
 
-# Part 10: Prompt template for your own website
+# Part 10: Test your website with a local server
 
-Use this template if you choose a topic other than the sports dashboard:
+Because this website uses JavaScript `fetch()` requests to load live API data, do not rely on double-clicking `index.html`. That opens the site as a `file://` URL, and browser security settings can block network requests from local files.
+
+Use a local HTTP server instead.
+
+## 1. Confirm you are in the website folder
+
+In Cursor’s integrated terminal, run:
+
+```bash
+pwd
+```
+
+The result should end with your website project folder.
+
+Then run:
+
+```bash
+ls
+```
+
+You should see:
 
 ```text
-Read PROJECT_RULES.md before responding.
-
-I want to create a responsive static website about [YOUR TOPIC] for [YOUR AUDIENCE].
-
-The purpose of the site is:
-
-[DESCRIBE THE PURPOSE IN ONE OR TWO SENTENCES.]
-
-The site must include:
-1. [FEATURE ONE]
-2. [FEATURE TWO]
-3. [FEATURE THREE]
-
-Technical constraints:
-- Use only HTML, CSS, and vanilla JavaScript.
-- Do not install packages or use a framework unless I explicitly approve it.
-- Create or modify index.html, styles.css, and script.js as needed.
-- Use semantic HTML and accessible labels.
-- The site must run locally by opening index.html in a browser.
-- Use only original, fictional, public-domain, or properly licensed content.
-- Do not copy another organization’s branding, logos, text, images, or proprietary data.
-
-Design direction:
-- The visual style should be: [DESCRIBE THE COLOR, MOOD, OR STYLE].
-- The site should work on desktop and mobile screens.
-- Include a visible title and short description.
-- Include at least one interactive JavaScript feature.
-
-First, inspect the project and propose a minimal plan. Do not edit files until I approve the plan.
+index.html
+styles.css
+script.js
 ```
+
+## 2. Start a local server
+
+Run:
+
+```bash
+python3 -m http.server 8000
+```
+
+You should see a message similar to:
+
+```text
+Serving HTTP on 0.0.0.0 port 8000
+```
+
+Leave this terminal running.
+
+## 3. Open your website
+
+Open this address in a browser:
+
+```text
+http://localhost:8000
+```
+
+Your website should appear.
+
+After you save changes in Cursor, refresh the browser page to see the updated version.
+
+## 4. Stop the server
+
+When you are done testing, click inside the terminal running the server and press:
+
+```text
+Control + C
+```
+
+If `python3` does not work, try:
+
+```bash
+python -m http.server 8000
+```
+
+## 5. Test the website deliberately
+
+Test each state:
+
+### Loading
+
+1. Open `http://localhost:8000`.
+2. Confirm that the page shows a loading message before data appears.
+
+### Success
+
+1. Confirm a last-refresh time appears after successful data loading.
+2. Confirm that Live, Today’s Matches, and Recent Results render correctly.
+3. Confirm that team names, scores, and statuses are readable.
+
+### No-live-match state
+
+On most days, no Premier League match will be in progress.
+
+Confirm that the Live section shows:
+
+```text
+No Premier League match is being played right now.
+```
+
+This is a valid data state, not an error.
+
+### Refresh cooldown
+
+1. Click **Refresh scores**.
+2. Confirm the button becomes disabled.
+3. Click it again immediately.
+4. Confirm that no second request is made.
+5. Wait 60 seconds and confirm the button becomes available again.
+
+### Error state
+
+1. Wait until the Refresh button is available.
+2. Disconnect from Wi-Fi or enable airplane mode.
+3. Click **Refresh scores**.
+4. Confirm that the site shows a user-friendly error message.
+5. Confirm that previously loaded data remains visible, if applicable.
+6. Reconnect to the internet and refresh again.
+
+### Responsive and theme testing
+
+1. Toggle between dark and light mode.
+2. Make the browser window narrow.
+3. Confirm that cards remain readable and buttons remain usable.
+
+### Browser developer tools
+
+Open your browser’s developer tools.
+
+- In **Console**, check that no JavaScript errors appear.
+- In **Network**, refresh the page and confirm the three API requests return JSON responses.
 
 ---
 
@@ -930,7 +1099,7 @@ git add .
 A commit is a saved checkpoint in your project history.
 
 ```bash
-git commit -m "Build initial website prototype"
+git commit -m "Add Premier League match center"
 ```
 
 Write commit messages that describe what changed.
@@ -938,32 +1107,84 @@ Write commit messages that describe what changed.
 Examples:
 
 ```bash
-git commit -m "Add responsive navigation"
+git commit -m "Add live Premier League match data"
 ```
 
 ```bash
-git commit -m "Fix category filter behavior"
+git commit -m "Improve match refresh feedback"
 ```
 
 ```bash
-git commit -m "Improve mobile layout"
+git commit -m "Fix mobile match card layout"
 ```
 
-## 4. Push your work to GitHub
+## 4. Synchronize before pushing
+
+Before pushing, check for updates on GitHub:
+
+```bash
+git pull --rebase origin main
+```
+
+If the command succeeds, push your changes:
 
 ```bash
 git push origin main
 ```
 
-Refresh your repository page on GitHub. Your files should now appear online.
+If Git reports a conflict:
+
+1. Run:
+
+```bash
+git status
+```
+
+2. Open the named file in Cursor.
+3. Resolve the conflict markers.
+4. Save the file.
+5. Add the resolved file:
+
+```bash
+git add NAME-OF-CONFLICTED-FILE
+```
+
+6. Continue the rebase:
+
+```bash
+git rebase --continue
+```
+
+7. Push when the rebase completes:
+
+```bash
+git push origin main
+```
+
+Do not use `git push --force` for this tutorial.
+
+Refresh your GitHub repository page. Your files should now appear online.
 
 ---
 
 # Part 12: Deploy your website with GitHub Pages
 
-GitHub Pages can publish static HTML, CSS, and JavaScript files from your GitHub repository.
+GitHub Pages can publish static HTML, CSS, and JavaScript files directly from your GitHub repository.
 
-## 1. Enable GitHub Pages
+## 1. Check the project structure
+
+Before deploying, confirm that `index.html` is in the top-level folder of your personal website repository:
+
+```text
+premier-league-match-center/
+├── index.html
+├── styles.css
+├── script.js
+├── README.md
+└── PROJECT_RULES.md
+```
+
+## 2. Enable GitHub Pages
 
 1. Open your GitHub repository.
 2. Click **Settings**.
@@ -976,7 +1197,7 @@ GitHub Pages can publish static HTML, CSS, and JavaScript files from your GitHub
 
 GitHub will publish your website. This can take a few minutes.
 
-## 2. Find the live website URL
+## 3. Find the live website URL
 
 Return to **Settings → Pages**.
 
@@ -988,31 +1209,34 @@ https://your-github-username.github.io/your-repository-name/
 
 Open that URL and test the live website.
 
-## 3. Publish one improvement
+## 4. Publish one improvement
 
 Choose one small improvement after your first deployment.
 
 Ideas:
 
-- Improve spacing on mobile
-- Add another category or section
-- Add a search field
-- Improve color contrast
-- Add a new interactive feature
-- Improve instructions for visitors
-- Add original visual assets
-- Add an accessibility improvement
+- Remember the light/dark mode choice after a page reload.
+- Add team badges with a text fallback.
+- Improve spacing on mobile.
+- Add a match-status legend.
+- Add a short explanation of the data source.
+- Improve color contrast.
+- Add a new feature relevant to your own project topic.
 
 Ask Cursor to plan the improvement before making changes.
 
-When the improvement works locally, publish it:
+When the improvement works locally:
 
 ```bash
 git add .
 ```
 
 ```bash
-git commit -m "Improve website usability"
+git commit -m "Improve match center usability"
+```
+
+```bash
+git pull --rebase origin main
 ```
 
 ```bash
@@ -1053,10 +1277,12 @@ Before submitting, confirm:
 - [ ] I committed `PROJECT_RULES.md` to GitHub.
 - [ ] I used Cursor to plan before generating or editing code.
 - [ ] I reviewed Cursor’s proposed changes.
-- [ ] I tested my website locally.
+- [ ] I tested my website with `http://localhost:8000`.
+- [ ] I tested loading, success, empty, error, and refresh-cooldown states.
 - [ ] I made at least one Git commit.
+- [ ] I pulled with rebase before pushing.
 - [ ] I pushed my work to GitHub.
 - [ ] I deployed the website with GitHub Pages.
 - [ ] I tested the live URL.
-- [ ] My website uses original, fictional, public-domain, or properly licensed content.
+- [ ] My website includes a source note for outside data or assets.
 - [ ] My reflection explains both Cursor’s contribution and my own verification work.
